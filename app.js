@@ -21,7 +21,8 @@
       if (!rel || !rel.assets) return
       rel.assets.forEach(function (a) {
         if (/\.exe$/i.test(a.name)) optWin.href = a.browser_download_url
-        if (/\.dmg$/i.test(a.name)) optMac.href = a.browser_download_url
+        // x64 zip runs on both Intel and Apple Silicon (via Rosetta).
+        if (/-x64\.zip$/i.test(a.name)) optMac.href = a.browser_download_url
       })
       var ver = document.getElementById('ver')
       if (ver && rel.tag_name) ver.textContent = rel.tag_name + ' · for Windows & macOS'
