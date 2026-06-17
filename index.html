@@ -3,127 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Download Botcord</title>
-    <meta name="description" content="Botcord — a beautiful desktop client for your own Discord bot. Download for Windows and macOS." />
-    <style>
-      :root {
-        --accent: #5865f2;
-        --accent-2: #3c42aa;
-        --bg: #0c0d10;
-        --card: #16171b;
-        --text: #f2f3f5;
-        --muted: #b5bac1;
-        --dim: #8a8d93;
-        --online: #23a55a;
-      }
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body {
-        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        min-height: 100vh;
-        overflow-x: hidden;
-      }
-      .aurora {
-        position: fixed; inset: -30%;
-        background:
-          radial-gradient(40% 40% at 20% 20%, rgba(88,101,242,0.45), transparent 70%),
-          radial-gradient(35% 35% at 80% 25%, rgba(120,90,237,0.35), transparent 70%),
-          radial-gradient(45% 45% at 60% 90%, rgba(40,66,170,0.4), transparent 70%);
-        filter: blur(50px); z-index: 0; animation: drift 16s ease-in-out infinite alternate;
-      }
-      @keyframes drift { to { transform: translate(3%, 2%) scale(1.08); } }
-      .wrap { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; padding: 64px 24px 80px; text-align: center; }
-      .logo {
-        width: 84px; height: 84px; border-radius: 26px; background: var(--card);
-        display: grid; place-items: center; margin: 0 auto 24px; box-shadow: 0 12px 40px rgba(0,0,0,0.5);
-      }
-      h1 { font-size: 52px; font-weight: 800; letter-spacing: -1px; }
-      h1 span { background: linear-gradient(120deg, #fff, var(--accent)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-      .tagline { color: var(--muted); font-size: 19px; margin: 14px auto 40px; max-width: 560px; line-height: 1.5; }
-      .downloads { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-      .dl {
-        display: flex; align-items: center; gap: 14px; padding: 18px 28px; border-radius: 14px;
-        background: var(--card); border: 1px solid #25262c; color: var(--text); text-decoration: none;
-        transition: transform 0.15s, border-color 0.15s, background 0.15s; min-width: 260px;
-      }
-      .dl:hover { transform: translateY(-3px); border-color: var(--accent); background: #1b1c22; }
-      .dl.primary { background: var(--accent); border-color: var(--accent); }
-      .dl.primary:hover { background: var(--accent-2); }
-      .dl svg { width: 34px; height: 34px; flex-shrink: 0; }
-      .dl-text { text-align: left; }
-      .dl-text b { font-size: 17px; display: block; }
-      .dl-text small { color: var(--dim); font-size: 13px; }
-      .dl.primary .dl-text small { color: rgba(255,255,255,0.8); }
-      .note { color: var(--dim); font-size: 14px; margin-top: 28px; }
-      .badge { display: inline-flex; align-items: center; gap: 7px; color: var(--online); font-weight: 600; font-size: 14px; margin-bottom: 8px; }
-      .badge i { width: 8px; height: 8px; border-radius: 50%; background: var(--online); }
-      .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 70px; text-align: left; }
-      .feature { background: rgba(22,23,27,0.6); border: 1px solid #25262c; border-radius: 14px; padding: 22px; }
-      .feature h3 { font-size: 16px; margin-bottom: 6px; }
-      .feature p { color: var(--dim); font-size: 14px; line-height: 1.5; }
-      footer { margin-top: 70px; color: var(--dim); font-size: 13px; }
-      footer a { color: var(--accent); text-decoration: none; }
-    </style>
+    <title>Botcord — a desktop client for your Discord bot</title>
+    <meta name="description" content="Botcord is a beautiful desktop client for your own Discord bot. Browse servers, chat, react, manage members and play music. Free for Windows and macOS." />
+    <meta property="og:title" content="Botcord" />
+    <meta property="og:description" content="A beautiful desktop client for your own Discord bot." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%235865f2' d='M20 4.5A16.5 16.5 0 0 0 4 4.5C2.9 8.5 2.2 12.4 2.5 16.2A16.7 16.7 0 0 0 21.5 16.2c.4-4.4-.6-8.3-1.5-11.7Z'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="aurora"></div>
-    <main class="wrap">
-      <div class="logo">
-        <svg width="48" height="48" viewBox="0 0 24 24"><path fill="var(--accent)" d="M20 4.5A16.5 16.5 0 0 0 15.7 3l-.2.4a15 15 0 0 1 4 .9 13.6 13.6 0 0 0-9.4 0 15 15 0 0 1 4-.9L13.9 3A16.5 16.5 0 0 0 9.6 3 16.5 16.5 0 0 0 5.6 4.5C2.9 8.5 2.2 12.4 2.5 16.2A16.7 16.7 0 0 0 7.6 18l.4-.6c-.8-.3-1.6-.7-2.3-1.2l.6-.4a11.8 11.8 0 0 0 10 0l.6.4c-.7.5-1.5.9-2.3 1.2l.4.6a16.7 16.7 0 0 0 5.1-1.8c.4-4.4-.6-8.3-2.5-11.7ZM9.3 14c-.8 0-1.5-.8-1.5-1.7 0-1 .7-1.7 1.5-1.7s1.5.8 1.5 1.7c0 1-.7 1.7-1.5 1.7Zm5.4 0c-.8 0-1.5-.8-1.5-1.7 0-1 .7-1.7 1.5-1.7s1.5.8 1.5 1.7c0 1-.6 1.7-1.5 1.7Z" /></svg>
-      </div>
-      <div class="badge"><i></i> Auto-updating · Free</div>
-      <h1>Get <span>Botcord</span></h1>
-      <p class="tagline">A beautiful desktop client for <b>your own Discord bot</b>. Browse servers, chat, react, manage members, play music — all from one fast, native app.</p>
 
-      <div class="downloads">
-        <a class="dl primary" id="dl-win" href="https://github.com/Lucasd200/botcord/releases/latest">
-          <svg viewBox="0 0 24 24"><path fill="#fff" d="M3 5.5 11 4.3v7.2H3V5.5Zm0 13L11 19.7v-7.1H3v5.9Zm9 1.3L21 21V12.6h-9v7.2Zm0-15.6V11.5h9V3L12 4.2Z"/></svg>
-          <span class="dl-text"><b>Download for Windows</b><small>Windows 10 / 11 · .exe installer</small></span>
+    <header class="nav">
+      <a class="brand" href="/">
+        <svg width="28" height="28" viewBox="0 0 24 24"><path fill="var(--accent)" d="M20 4.5A16.5 16.5 0 0 0 15.7 3l-.2.4a15 15 0 0 1 4 .9 13.6 13.6 0 0 0-9.4 0 15 15 0 0 1 4-.9L13.9 3A16.5 16.5 0 0 0 9.6 3 16.5 16.5 0 0 0 5.6 4.5C2.9 8.5 2.2 12.4 2.5 16.2A16.7 16.7 0 0 0 7.6 18l.4-.6c-.8-.3-1.6-.7-2.3-1.2l.6-.4a11.8 11.8 0 0 0 10 0l.6.4c-.7.5-1.5.9-2.3 1.2l.4.6a16.7 16.7 0 0 0 5.1-1.8c.4-4.4-.6-8.3-2.5-11.7ZM9.3 14c-.8 0-1.5-.8-1.5-1.7 0-1 .7-1.7 1.5-1.7s1.5.8 1.5 1.7c0 1-.7 1.7-1.5 1.7Zm5.4 0c-.8 0-1.5-.8-1.5-1.7 0-1 .7-1.7 1.5-1.7s1.5.8 1.5 1.7c0 1-.6 1.7-1.5 1.7Z" /></svg>
+        Botcord
+      </a>
+      <nav class="nav-links">
+        <a href="https://docs.botcord.dev">Docs</a>
+        <a href="https://github.com/Lucasd200/botcord">GitHub</a>
+        <a class="nav-discord" href="https://discord.gg/3yn4qSX4Gj" target="_blank" rel="noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4.5A16.5 16.5 0 0 0 15.7 3l-.2.4a15 15 0 0 1 4 .9 13.6 13.6 0 0 0-9.4 0 15 15 0 0 1 4-.9L13.9 3A16.5 16.5 0 0 0 5.6 4.5C2.9 8.5 2.2 12.4 2.5 16.2A16.7 16.7 0 0 0 7.6 18l.4-.6c-.8-.3-1.6-.7-2.3-1.2l.6-.4a11.8 11.8 0 0 0 10 0l.6.4c-.7.5-1.5.9-2.3 1.2l.4.6a16.7 16.7 0 0 0 5.1-1.8c.4-4.4-.6-8.3-2.5-11.7ZM9.3 14c-.8 0-1.5-.8-1.5-1.7 0-1 .7-1.7 1.5-1.7s1.5.8 1.5 1.7c0 1-.7 1.7-1.5 1.7Zm5.4 0c-.8 0-1.5-.8-1.5-1.7 0-1 .7-1.7 1.5-1.7s1.5.8 1.5 1.7c0 1-.6 1.7-1.5 1.7Z" /></svg>
+          Discord
         </a>
-        <a class="dl" id="dl-mac" href="https://github.com/Lucasd200/botcord/releases/latest">
-          <svg viewBox="0 0 24 24"><path fill="#fff" d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8c-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .7 1.1 1.6 2.3 2.8 2.2 1.1 0 1.5-.7 2.9-.7s1.7.7 2.9.7 2-1.1 2.7-2.1c.8-1.2 1.2-2.4 1.2-2.5-.1 0-2.3-.9-2.3-3.6ZM14.3 5.8c.6-.8 1-1.8.9-2.8-.9 0-2 .6-2.6 1.3-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.2Z"/></svg>
-          <span class="dl-text"><b>Download for macOS</b><small>Intel &amp; Apple Silicon · .dmg</small></span>
-        </a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <div class="badge"><i></i> Free · Auto-updating · Windows &amp; macOS</div>
+      <h1>The desktop client for <span>your Discord bot</span></h1>
+      <p class="tagline">Log in with your bot token and get a full Discord-style workspace — servers, channels, rich chat, reactions, members, voice &amp; music — in one fast, native app.</p>
+      <button class="download-btn" id="downloadBtn">
+        <svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 3v10m0 0 4-4m-4 4-4-4M5 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" /></svg>
+        Download Botcord
+      </button>
+      <p class="ver" id="ver">for Windows &amp; macOS</p>
+
+      <div class="shot">
+        <div class="shot-bar"><span></span><span></span><span></span></div>
+        <div class="shot-body">
+          <div class="shot-rail"></div>
+          <div class="shot-side"></div>
+          <div class="shot-main">
+            <div class="shot-line w60"></div>
+            <div class="shot-line w90"></div>
+            <div class="shot-line w40"></div>
+            <div class="shot-line w75"></div>
+          </div>
+        </div>
       </div>
-      <p class="note" id="note">Updates install themselves — you'll get an “Update Ready” button in the app whenever there's a new version. Linux build coming soon.</p>
-
-      <section class="features">
-        <div class="feature"><h3>🔑 Log in with a token</h3><p>Securely connect your bot — the token is encrypted with your OS keychain and never leaves your device.</p></div>
-        <div class="feature"><h3>💬 Full Discord-style chat</h3><p>Markdown, custom emojis, images, replies, edits, reactions and a right-click menu — exactly where you expect them.</p></div>
-        <div class="feature"><h3>🎵 Voice &amp; music</h3><p>Join voice channels and play music or soundboard clips straight from the app.</p></div>
-        <div class="feature"><h3>🎨 Themes</h3><p>Light, Dark, Ash, Onyx, OS-sync, 19 color themes and a custom accent — applied instantly.</p></div>
-      </section>
-
-      <footer>
-        Built by Lucas · <a href="https://github.com/Lucasd200/botcord">Source on GitHub</a> · <a href="https://botcord.dev">botcord.dev</a>
-      </footer>
     </main>
 
-    <script>
-      // OS detection — surface the right installer first.
-      var ua = navigator.userAgent;
-      var isMac = /Macintosh|Mac OS X/.test(ua);
-      if (isMac) {
-        var win = document.getElementById('dl-win');
-        var mac = document.getElementById('dl-mac');
-        win.classList.remove('primary');
-        mac.classList.add('primary');
-        mac.parentNode.insertBefore(mac, win);
-      }
-      // When the releases repo is public, resolve direct latest-installer links.
-      fetch('https://api.github.com/repos/Lucasd200/botcord/releases/latest')
-        .then(function (r) { return r.ok ? r.json() : null; })
-        .then(function (rel) {
-          if (!rel || !rel.assets) return;
-          rel.assets.forEach(function (a) {
-            if (/\.exe$/i.test(a.name)) document.getElementById('dl-win').href = a.browser_download_url;
-            if (/\.dmg$/i.test(a.name)) document.getElementById('dl-mac').href = a.browser_download_url;
-          });
-          document.getElementById('note').firstChild.textContent =
-            'Latest version: ' + rel.tag_name + ' — updates install themselves via the “Update Ready” button. Linux coming soon.';
-        })
-        .catch(function () {});
-    </script>
+    <section class="features">
+      <div class="feature"><div class="fi">🔑</div><h3>Secure login</h3><p>Your bot token is encrypted with your OS keychain and never leaves your device.</p></div>
+      <div class="feature"><div class="fi">💬</div><h3>Rich chat</h3><p>Markdown, custom emojis, images, replies, edits, reactions and a right-click menu.</p></div>
+      <div class="feature"><div class="fi">🎵</div><h3>Voice &amp; music</h3><p>Join voice channels and play music or soundboard clips right from the app.</p></div>
+      <div class="feature"><div class="fi">👥</div><h3>Members &amp; DMs</h3><p>See who's online grouped by role, and DM users your bot shares a server with.</p></div>
+      <div class="feature"><div class="fi">🎨</div><h3>Themes</h3><p>Light, Dark, Ash, Onyx, OS-sync, 19 color themes and a custom accent.</p></div>
+      <div class="feature"><div class="fi">⚡</div><h3>Fast &amp; native</h3><p>Built on Electron + discord.js. Auto-updates itself when a new version ships.</p></div>
+    </section>
+
+    <footer class="foot">
+      <div class="foot-brand">
+        <svg width="22" height="22" viewBox="0 0 24 24"><path fill="var(--accent)" d="M20 4.5A16.5 16.5 0 0 0 4 4.5C2.9 8.5 2.2 12.4 2.5 16.2A16.7 16.7 0 0 0 21.5 16.2c.4-4.4-.6-8.3-1.5-11.7Z" /></svg>
+        Botcord
+      </div>
+      <div class="foot-links">
+        <a href="https://discord.gg/3yn4qSX4Gj" target="_blank" rel="noreferrer">Join our Discord</a>
+        <a href="mailto:lucas@botcord.dev">lucas@botcord.dev</a>
+        <a href="https://docs.botcord.dev">Docs</a>
+        <a href="https://github.com/Lucasd200/botcord">GitHub</a>
+      </div>
+      <div class="foot-copy">© 2026 Botcord · Built by Lucas</div>
+    </footer>
+
+    <!-- Download chooser -->
+    <div class="modal-overlay" id="modal">
+      <div class="modal">
+        <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+        <h2>Choose your platform</h2>
+        <p class="modal-sub">Pick the build for your computer.</p>
+        <div class="modal-options">
+          <a class="opt" id="optWin" href="https://github.com/Lucasd200/botcord/releases/latest" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M3 5.5 11 4.3v7.2H3V5.5Zm0 13L11 19.7v-7.1H3v5.9Zm9 1.3L21 21V12.6h-9v7.2Zm0-15.6V11.5h9V3L12 4.2Z"/></svg>
+            <b>Windows</b><small>10 / 11 · .exe</small>
+          </a>
+          <a class="opt" id="optMac" href="https://github.com/Lucasd200/botcord/releases/latest" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8c-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .7 1.1 1.6 2.3 2.8 2.2 1.1 0 1.5-.7 2.9-.7s1.7.7 2.9.7 2-1.1 2.7-2.1c.8-1.2 1.2-2.4 1.2-2.5-.1 0-2.3-.9-2.3-3.6ZM14.3 5.8c.6-.8 1-1.8.9-2.8-.9 0-2 .6-2.6 1.3-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.2Z"/></svg>
+            <b>macOS</b><small>Intel &amp; Apple Silicon · .dmg</small>
+          </a>
+        </div>
+        <p class="modal-note">Updates install themselves once you're set up.</p>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
   </body>
 </html>
