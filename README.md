@@ -1,14 +1,9 @@
-# Botcord — Setup / Download page
+# Botcord setup
 
-The public download page for **Botcord**, the desktop client for your own Discord bot.
+The download page for **Botcord** — the desktop app that runs your own Discord bot in a Discord-style window.
 
-`index.html` is a self-contained page (no build step) that:
-- detects the visitor's OS and highlights the right installer,
-- links to the latest **Windows** (`.exe`) and **macOS** (`.dmg`) installers, and
-- resolves the exact latest-release asset links automatically once the [botcord](https://github.com/Lucasd200/botcord) releases repo is public.
+Want the app? Open the page and hit **Download**, then choose **Windows** or **macOS**. That's it.
 
-## Deploy
-Drop it on any static host. For Cloudflare Pages: connect this repo, framework preset **None**, build command empty, output directory `/`.
+This repo is just that download page: a single static `index.html` (plus styles), no build step. It's deployed with **Cloudflare Pages** — connect the repo, leave the build command empty, output directory `/`. The download buttons automatically point to the latest installers from the [main Botcord release](https://github.com/Lucasd200/botcord/releases/latest).
 
-## Where do the installers come from?
-Pushing a version tag (e.g. `v2.1.0`) to the [botcord](https://github.com/Lucasd200/botcord) repo runs its **Release** GitHub Action, which builds the Windows + macOS installers and publishes them (with auto-update metadata) to a GitHub Release. This page links to those assets, and the app updates itself from them.
+Questions? **[Discord](https://discord.gg/3yn4qSX4Gj)** · lucas@botcord.dev
